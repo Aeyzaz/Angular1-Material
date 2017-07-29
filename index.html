@@ -1,0 +1,54 @@
+  <head>
+
+    <!-- AngularJS Material CSS using GitCDN to load directly from `bower-material/master` -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <style type="text/css">
+      .ext-content {
+        padding: 50px;
+        margin: 20px;
+        background-color: #FFF2E0; }
+      </style>
+    </head> 
+    <body ng-app="MyApp">
+
+      <div ng-controller="AppCtrl" ng-cloak>
+        <md-content class="md-padding">
+          <md-nav-bar
+          md-selected-nav-item="currentNavItem"
+          nav-bar-aria-label="navigation links">
+          <md-nav-item md-nav-click="goto('page1')" name="page1">
+            Page One
+          </md-nav-item>
+          <md-nav-item md-nav-click="goto('page2')" name="page2">
+            Page Two
+          </md-nav-item>
+          <md-nav-item md-nav-click="goto('page3')" name="page3">
+            Page Three
+          </md-nav-item>
+
+        </md-nav-bar>
+        <div class="ext-content">
+          External content for `<span>{{currentNavItem}}</span>`.
+        </div>
+
+      </md-content>
+    </div>
+
+    <!-- AngularJS Material Dependencies -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+
+    <!-- AngularJS Material Javascript using GitCDN to load directly from `bower-material/master` -->
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script>
+      var app = angular.module('MyApp',['ngMaterial'])
+      .run(function(){
+        console.log("App Runs fine");
+      });
+
+      app.controller('AppCtrl', function($scope) {
+        $scope.currentNavItem = 'page1';
+      });
+    </script>
+  </body>
